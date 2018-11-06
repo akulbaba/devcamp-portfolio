@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 2018_11_06_005144) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.integer "status", default: 0
-    t.string "topic_references"
+    t.integer "topic_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
+    t.index ["topic_id"], name: "index_blogs_on_topic_id", using: :btree
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -57,5 +58,7 @@ ActiveRecord::Schema.define(version: 2018_11_06_005144) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+  
+  add_foreign_key "blogs", "topics"
 
 end
