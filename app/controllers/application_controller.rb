@@ -4,9 +4,6 @@ class ApplicationController < ActionController::Base
     include CurrentUserConcern
     include DefaultPageContent
     
-    
-    before_filter set_title
-    
 
 
 end
